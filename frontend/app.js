@@ -85,6 +85,7 @@ class Chatbox {
 
     updateChatText(chatbox) {
         var html = '';
+        this.args.chatsContainer.scrollTop = 0
         this.messages.slice().reverse().forEach(function (item, index) {
             if (item.name === "bot") {
                 html += '<div class="messages__item messages__item--visitor"><span class="messages__item--name">PrinceSolutions</span>' + item.message + '</div>'
@@ -96,9 +97,6 @@ class Chatbox {
 
         const chatmessage = chatbox.querySelector('.chatbox__messages');
         chatmessage.innerHTML = html;
-        if (this.args.chatsContainer.scrollTop < 0) {
-            this.args.chatsContainer.scrollTo({ top: this.args.chatsContainer.scrollHeight, behavior: 'smooth' })
-        }
     }
 }
 
