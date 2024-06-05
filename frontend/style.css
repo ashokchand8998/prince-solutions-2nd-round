@@ -1,0 +1,334 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nunito', sans-serif !important;
+    font-weight: 400;
+    font-size: 100%;
+    background: #F1F1F1;
+}
+
+*, html {
+    --primaryGradient: linear-gradient(93.12deg, #581B98 0.52%, #9C1DE7 100%);
+    --secondaryGradient: linear-gradient(268.91deg, #581B98 -2.14%, #9C1DE7 99.69%);
+    --primaryBoxShadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    --secondaryBoxShadow: 0px -10px 15px rgba(0, 0, 0, 0.1);
+    --primary: #581B98;
+}
+
+/* CHATBOX
+=============== */
+.chatbox {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+/* CONTENT IS CLOSE */
+.chatbox__support {
+    display: flex;
+    flex-direction: column;
+    background: #eee;
+    width: 300px;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0);
+    border-radius: 20px;
+    height: 450px;
+    z-index: -123456;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+}
+
+/* CONTENT ISOPEN */
+.chatbox--active {
+    transform: translateY(-40px);
+    z-index: 123456;
+    opacity: 1;
+
+}
+
+/* BUTTON */
+.chatbox__button {
+    text-align: right;
+    margin-left: auto;
+    width: fit-content;
+}
+
+.send__button {
+    padding: 6px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+/* HEADER */
+.chatbox__header {
+    position: sticky;
+    top: 0;
+    /* background: orange; */
+}
+
+/* MESSAGES */
+.chatbox__messages {
+    margin-top: auto;
+    display: flex;
+    overflow-y: scroll;
+    flex-direction: column-reverse;
+    border-radius: 15px;
+}
+
+.messages__item {
+    background: orange;
+    max-width: 60.6%;
+    width: fit-content;
+    position: relative;
+}
+
+.messages__item--operator {
+    margin-left: auto;
+}
+
+.messages__item--visitor {
+    margin-right: auto;
+}
+
+.messages__item--name {
+    color: #aaa8a8;
+    position: absolute;
+    top: -18px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.messages__item--operator .messages__item--name {
+    right: 10px;
+    color: var(--primary);
+}
+
+.messages__item--visitor .messages__item--name {
+    left: 10px
+}
+
+/* FOOTER */
+.chatbox__footer {
+    position: sticky;
+    bottom: 0;
+}
+
+.chatbox__support {
+    /* background: #f9f9f9; */
+    background: var(--primaryGradient);
+    height: 550px;
+    width: 350px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* HEADER */
+.chatbox__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    /* box-shadow: var(--primaryBoxShadow); */
+}
+
+.chatbox__image--header {
+    margin-right: 10px;
+}
+
+.chatbox__image--header image {
+    width: 50px;
+    height: 50px;
+}
+
+.chatbox__heading--header {
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: 600;
+    color: white;
+}
+
+.chatbox__description--header {
+    font-size: .8rem;
+    line-height: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Messages */
+.chatbox__messages {
+    padding: 0 15px;
+    box-shadow: var(--primaryBoxShadow);
+    overscroll-behavior: none;
+    /* background-color: white; */
+}
+
+.messages__item {
+    margin-top: 10px;
+    margin-bottom: 18px;
+    background: #E0E0E0;
+    padding: 12px 12px;
+    max-width: 90%;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+    font-size: 0.85rem;
+}
+
+.messages__item--operator {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background: var(--primary);
+    color: white;
+}
+
+.messages__item--visitor {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    /* background: var(--primary); */
+    color: rgba(0, 0, 0, 0.8);
+}
+
+/* FOOTER */
+.chatbox__footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+    /* background: var(--secondaryGradient); */
+    /* box-shadow: var(--secondaryBoxShadow); */
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-top: 20px;
+}
+
+.chatbox__footer input {
+    width: 80%;
+    border: none;
+    padding: 10px 15px 8px;
+    border-radius: 30px;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.chatbox__send--footer {
+    color: white;
+    height: 37px;
+    width: 37px;
+    display: flex;
+    justify-content: center;
+}
+
+.bi-send {
+    font-size: 15px;
+}
+
+.chatbox__button button,
+.chatbox__button button:focus,
+.chatbox__button button:visited {
+    padding: 10px;
+    width: 45px;
+    height: 45px;
+    background: white;
+    border: none;
+    outline: none;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+
+::-webkit-scrollbar {
+    width: 7px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primaryGradient);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondaryGradient);
+}
+
+
+/* typed text loading animation styles */
+.dots {
+    /* width: 50px; */
+    margin-top: 10px;
+    background-color: transparent !important;
+    margin-right: auto;
+    transform: scale(0);
+    animation: overall-scale 8s infinite;
+}
+
+.dot {
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+    animation-name: dot-scale;
+    animation-duration: 1s;
+
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 5px 0px;
+    border-radius: 10px;
+    background: #aaa8a8;
+    transform: scale(0.65);
+
+    &:first-of-type {
+        margin-left: 6px
+    }
+
+    &:nth-of-type(2) {
+        animation-delay: 0.15s;
+    }
+
+    &:nth-of-type(3) {
+        animation-delay: 0.3s;
+    }
+}
+
+@keyframes dot-scale {
+
+    0%,
+    70% {
+        transform: scale(0.65);
+    }
+
+    35% {
+        transform: scale(1);
+    }
+}
+
+@keyframes overall-scale {
+
+    0%,
+    95% {
+        transform: scale(0);
+    }
+
+    5%,
+    90% {
+        transform: scale(1);
+    }
+}
